@@ -1,0 +1,258 @@
+/* ---- CONFIGURACIÓN GENERAL ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* ---- 1. BARRA SUPERIOR ---- */
+.top-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-bar-links a {
+    color: #1b5e20; /* Verde Agronet */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.top-bar-links a:hover {
+    text-decoration: underline;
+}
+
+/* ---- 2. NAVBAR PRINCIPAL ---- */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo .emoji {
+    margin-right: 8px;
+}
+
+.logo-text-gray { color: #555555; }
+.logo-text-green { color: #1b5e20; }
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin: 0 12px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #666666;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #1b5e20;
+}
+
+/* Pestaña activa según image_9a7c61.png */
+.nav-menu li.active a {
+    color: #1b5e20;
+    border-bottom: 2px solid #1b5e20;
+    padding-bottom: 5px;
+}
+
+/* Logo UPRA */
+.logo-upra {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 15px;
+    text-align: right;
+}
+
+.upra-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #b89047; /* Dorado de la imagen */
+    letter-spacing: 2px;
+    display: block;
+}
+
+.bandera {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2px;
+}
+
+.bloque {
+    width: 30px;
+    height: 4px;
+}
+.amarillo { background-color: #ffeb3b; }
+.azul { background-color: #0d47a1; }
+.rojo { background-color: #b71c1c; }
+
+/* ---- 3. BREADCRUMBS ---- */
+.breadcrumbs {
+    background-color: #ffffff;
+    padding: 12px 40px;
+    font-size: 13px;
+    color: #777777;
+    border-top: 1px solid #f0f0f0;
+}
+
+.separador {
+    margin: 0 8px;
+    color: #ccc;
+}
+
+.actual {
+    color: #111111;
+}
+
+/* ---- 4. HERO BANNER (Sección Verde) ---- */
+.hero-banner {
+    background: linear-gradient(135deg, #144216, #1b5e20);
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalle visual simulando las líneas de fondo */
+.circulo-decorativo {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px dashed rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: -50px;
+    left: 10%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-titulo-contenedor {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 12px 30px;
+    border-radius: 8px;
+}
+
+.tractor-icon {
+    font-size: 40px;
+    margin-right: 15px;
+}
+
+.hero-titulo-contenedor h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero-subtitulo {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #e0f2f1;
+    line-height: 1.5;
+}
+
+/* ---- 5. CONTENIDO Y TARJETAS ---- */
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.seccion-titulo {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.tarjeta-icono {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.tarjeta h4 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* Botones */
+.btn-verde {
+    background-color: #1b5e20;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-verde:hover {
+    background-color: #0f3d13;
+}
