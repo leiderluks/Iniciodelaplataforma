@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZenúMerc | Conservación y Mercado Artesanal Zenú</title>
+  <link rel="stylesheet" href="stilo.css" />
+</head>
+<body>
+
+  <!-- Barra superior institucional -->
+  <div class="top-bar">
+    <span>Resguardo Indígena Zenú • Córdoba y Sucre</span>
+    <div class="top-actions">
+      <button id="btnAbrirCarrito" class="btn-carrito-top">
+        🛒 Carrito (<span id="contadorCarrito">0</span>)
+      </button>
+    </div>
+  </div>
+
+  <!-- Navegación principal -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">🧺</span>
+      <h1>ZenúMerc</h1>
+    </div>
+    <nav class="nav-links">
+      <button class="nav-btn active" onclick="cambiarVista('catalogo', this)">Catálogo Artesanal</button>
+      <button class="nav-btn" onclick="cambiarVista('cultura', this)">Cultura e Historia</button>
+      <button class="nav-btn" onclick="cambiarVista('publicar', this)">+ Publicar Producto</button>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Comercio Justo y Patrimonio Vivo</span>
+      <h2>Arte tejido en caña flecha con memoria ancestral</h2>
+      <p>Conectamos directamente a los maestros artesanos del pueblo Zenú con el mundo, preservando nuestras técnicas tradicionales y economía comunitaria.</p>
+    </div>
+  </section>
+
+  <!-- VISTA 1: CATÁLOGO DE PRODUCTOS -->
+  <main id="vista-catalogo" class="vista active">
+    <div class="filtros-bar">
+      <h3>Vitrina de Artesanías Auténticas</h3>
+      <div class="filtros-botones">
+        <button class="filtro-btn active" onclick="filtrarProductos('Todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarProductos('Sombreros', this)">Sombreros</button>
+        <button class="filtro-btn" onclick="filtrarProductos('Mochilas', this)">Mochilas</button>
+        <button class="filtro-btn" onclick="filtrarProductos('Cestería', this)">Cestería</button>
+      </div>
+    </div>
+
+    <div id="gridProductos" class="grid-productos">
+      <!-- Se llena dinámicamente con JavaScript -->
+    </div>
+  </main>
+
+  <!-- VISTA 2: CULTURA E HISTORIA ZENÚ -->
+  <section id="vista-cultura" class="vista">
+    <div class="cultura-container">
+      <h3>Patrimonio Cultural del Pueblo Zenú</h3>
+      <p class="cultura-intro">Cada pieza comercializada en ZenúMerc lleva consigo siglos de sabiduría hidráulica, simbología geométrica y tradición oral.</p>
+      
+      <div class="cultura-grid">
+        <article class="cultura-card">
+          <h4>🌿 La Caña Flecha (Gynerium sagittatum)</h4>
+          <p>Fibra natural cultivada en las riberas y zonas húmedas. Su procesamiento incluye el raspado, secado al sol y tinturado natural con barro negro y hojas de jagua o bija.</p>
+        </article>
+        <article class="cultura-card">
+          <h4>🔷 Las Pintas y su Significado</h4>
+          <p>Las figuras geométricas tejidas en el trenzado representan elementos de la naturaleza y la cotidianidad: la huella del tigre, el ojo de pescado, el pecho de grillo y la flor de limón.</p>
+        </article>
+        <article class="cultura-card">
+          <h4>🤝 Comercio Directo sin Intermediarios</h4>
+          <p>El 100% del valor publicado busca dignificar el tiempo de trenzado (que puede tomar desde días hasta semanas según el número de vueltas: 15, 19, 21 o 23).</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISTA 3: FORMULARIO PARA ARTESANOS -->
+  <section id="vista-publicar" class="vista">
+    <div class="form-container">
+      <h3>Registrar Nueva Artesanía en la Plataforma</h3>
+      <p>Agrega un producto al catálogo local para demostración o gestión de inventario comunitario.</p>
+      
+      <form id="formNuevoProducto" onsubmit="agregarNuevoProducto(event)">
+        <div class="form-group">
+          <label for="nombreProd">Nombre de la pieza:</label>
+          <input type="text" id="nombreProd" placeholder="Ej: Sombrero Vueltiao 21 Vueltas" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="categoriaProd">Categoría:</label>
+            <select id="categoriaProd" required>
+              <option value="Sombreros">Sombreros</option>
+              <option value="Mochilas">Mochilas</option>
+              <option value="Cestería">Cestería</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="precioProd">Precio (COP):</label>
+            <input type="number" id="precioProd" placeholder="Ej: 280000" min="5000" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="artesanoProd">Artesano / Resguardo de origen:</label>
+          <input type="text" id="artesanoProd" placeholder="Ej: Familia Suárez - Tuchín, Córdoba" required />
+        </div>
+
+        <div class="form-group">
+          <label for="historiaProd">Descripción y significado de la pinta:</label>
+          <textarea id="historiaProd" rows="3" placeholder="Describe las vueltas, tintes naturales o historia de la pieza..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primario">Publicar en ZenúMerc</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- PANEL LATERAL DEL CARRITO -->
+  <aside id="panelCarrito" class="carrito-drawer">
+    <div class="carrito-header">
+      <h3>Tu Canasta Artesanal</h3>
+      <button id="btnCerrarCarrito" class="btn-cerrar">✕</button>
+    </div>
+    <div id="listaCarrito" class="carrito-items">
+      <!-- Items del carrito -->
+    </div>
+    <div class="carrito-footer">
+      <div class="carrito-total">
+        <span>Total estimado:</span>
+        <strong id="totalCarrito">$0 COP</strong>
+      </div>
+      <button class="btn-primario" onclick="finalizarPedido()">Confirmar Solicitud de Compra</button>
+    </div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+
+  <footer class="footer">
+    <p>ZenúMerc • Plataforma Digital para la Conservación Cultural y Comercio Justo</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
